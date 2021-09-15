@@ -18,5 +18,5 @@ while figure :
         figure = ''
     else :
         figure = input('Sorry, your input is not valid. Try again :)\nc/t : ')
-else : 
     figure = input('Cool, wanna try again? :) Enter cube or tetrahedon c/t : ')
+    
