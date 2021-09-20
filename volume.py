@@ -1,20 +1,47 @@
-#cube volume s^3
-#tetrahedron volume sqrt(2)*s^3 / 12
+'''
+A program that calculates the volume of different geometrical figures
+'''
 
 import math
 
-figure = input("Hey, let's play with some Geometry!\nWanna get the volume of a cube or a tetrahedron?\nc/t : ")
+def volume_of_cube(side_length):
+    return side_length**3
 
-while figure :
+def volume_of_tetrahedron(side_length):
+    return math.sqrt(2)*side_length**3/12
+
+figure = input(
+    "Hey, let's play with some Geometry!\n\
+    Wanna get the volume of a cube or a tetrahedron?\n\
+    c/t : "
+)
+
+while figure is not None :
     if (figure == 'c') :
-        side = int(input('\nHow many centimeters is each side of your cube? '))
-        volume = side**3
-        print('\nCool! The volume of your cube with the side length of ' + str(side) + ' is equal to ' + str(volume) + ' cm3 or ' + str(volume/1000) + ' liters')
+        side_length = eval(input(
+            '\nHow many centimeters is each side of your cube? '
+        ))
+
+        volume = volume_of_cube(side_length)
+        liters = volume/1000
+        print(
+            f'\nCool! The volume of your cube with the side length of \
+            {side_length} is equal to {volume} cm3 or {liters} liters'
+        )
     elif figure == 't' :
-        side = int(input('\nHow many centimeters is each side of your equilateral tetrahedron? '))
-        volume = int(math.sqrt(2)*side**3/12)
-        print('\nCool! The volume of your tetrahedron with the side length of ' + str(side) + ' is equal to ' + str(volume) + ' cm3 or ' + str(volume/1000) + ' liters')
+        side_length = eval(input(
+            '\nHow many centimeters is each side of your equilateral tetrahedron? '
+        ))
+        volume = volume_of_tetrahedron(side_length)
+        liters = volume/1000
+
+        print(
+            f'\nCool! The volume of your tetrahedron with the side length of \
+            {side_length} is equal to {volume} cm3 or {liters} liters'
+        )
     else :
-        figure = input('\nSorry, your input is not valid. Try again :)\nc/t : ')
-    figure = input('Wanna try again? :) Enter cube or tetrahedon c/t : ')
+        figure = input(
+            '\nSorry, your input is not valid. Try again :)\n\c/t : '
+        )
     
+    figure = input('Wanna try again? :) Enter cube or tetrahedon c/t : ')
